@@ -1,15 +1,16 @@
-import React from 'react';
-import Input from './Input';
-import Error from './Error';
-import { useForm } from '../hooks';
+import React from "react";
+import Input from "./Input";
+import Button from "./Button";
+import Error from "./Error";
+import { useForm } from "../hooks";
 
 function Question({ answers, onSubmit = () => {}, text, type }) {
   const { values, handleChange, handleSubmit, errors } = useForm(
     onSubmit,
-    (values) => {
+    values => {
       if (!Object.keys(values).length) {
         return {
-          error: 'Inget svar är valt',
+          error: "Inget svar är valt",
         };
       }
       return {};
@@ -24,11 +25,9 @@ function Question({ answers, onSubmit = () => {}, text, type }) {
         </h2>
  
         <form onSubmit={handleSubmit}>
-          {errors.error && (
-            <Error text={errors.error} />
-          )}
+          {errors.error && <Error text={errors.error} />}
 
-          {answers.map((a) => (
+          {answers.map(a => (
             <Input
               key={a._id}
               type={type}
@@ -38,14 +37,7 @@ function Question({ answers, onSubmit = () => {}, text, type }) {
             />
           ))}
 
-          <span className="inline-flex rounded-md shadow-sm w-full">
-            <button
-              type="submit"
-              className="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-full"
-            >
-              Nästa
-            </button>
-          </span>
+          <Button>Nästa</Button>
         </form>
       </div>
     </div>

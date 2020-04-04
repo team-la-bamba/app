@@ -1,47 +1,48 @@
 import React, { useEffect, useState } from "react";
-import "./tailwind-ui.min.css";
 import "./App.css";
+import "./tailwind-ui.min.css";
 import Question from "./components/Question";
 import Select from "./components/Select";
 import Done from "./components/Done";
-import Error from './components/Error';
+import Button from "./components/Button";
+import Error from "./components/Error";
 
-const url = 'https://api.labamba.space';
+const url = "https://api.labamba.space";
 
 function App() {
   const [answers, setAnswers] = useState([]);
-  const [place, setPlace] = useState('');
+  const [place, setPlace] = useState("");
   const [questionIndex, setQuestionIndex] = useState(0);
   const [done, setDone] = useState(false);
   const [questions, setQuestions] = useState([]);
   const [places, setPlaces] = useState([]);
   const [response, setResponse] = useState(null);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch(url + '/places')
-      .then((res) => res.json())
-      .then((body) => setPlaces(body));
+    fetch(url + "/places")
+      .then(res => res.json())
+      .then(body => setPlaces(body));
   }, []);
 
   const fetchQuestions = () => {
-    fetch(url + '/questions')
-      .then((res) => res.json())
-      .then((body) => setQuestions(body));
+    fetch(url + "/questions")
+      .then(res => res.json())
+      .then(body => setQuestions(body));
   };
 
-  const submitAnswers = (answers) => {
-    fetch(url + '/answers', {
-      method: 'POST',
+  const submitAnswers = answers => {
+    fetch(url + "/answers", {
+      method: "POST",
       headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
+        Accept: "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(answers),
     })
-      .then((res) => res.json())
-      .then((body) => {
-        setError('');
+      .then(res => res.json())
+      .then(body => {
+        setError("");
         setResponse(body);
         setDone(true);
       });
@@ -56,43 +57,36 @@ function App() {
             <h2 className="text-2xl leading-8 my-8 font-semibold font-display text-gray-900 sm:text-3xl sm:leading-9 mb-5 mt-0">
               Välj kommun
             </h2>
-            {error && (
-              <Error text={error} />
-            )}
+            {error && <Error text={error} />}
             <Select
               label="Kommuner"
               placeholder="Kommuner"
-              options={places.map((p) => {
+              options={places.map(p => {
                 return {
                   label: p,
                   value: p,
                 };
               })}
-              onChange={(selected) => setPlace(selected)}
+              onChange={selected => setPlace(selected)}
             />
-
-            <span className="inline-flex rounded-md shadow-sm w-full">
-              <button
-                onClick={() => {
-                  if (place) {
-                    fetchQuestions();
-                  } else {
-                    setError('Ingen kommun vald');
-                  }
-                }}
-                type="submit"
-                className="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-full"
-              >
-                Nästa
-              </button>
-            </span>
+            <Button
+              onClick={() => {
+                if (place) {
+                  fetchQuestions();
+                } else {
+                  setError("Ingen kommun vald");
+                }
+              }}
+            >
+              Nästa
+            </Button>
           </div>
         </div>
       </div>
     );
   }
 
-  const onSubmit = (values) => {
+  const onSubmit = values => {
     answers.push({
       question: questions[questionIndex]._id,
       answers: values.answer,
