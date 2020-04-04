@@ -4,7 +4,7 @@ import Question from "./components/Question";
 import Select from "./components/Select";
 import Done from "./components/Done";
 
-const url = "http://api.labamba.space";
+const url = "https://api.labamba.space";
 
 function App() {
   const [answers, setAnswers] = useState([]);
