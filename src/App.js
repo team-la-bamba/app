@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import './App.css';
-import Question from './components/Question';
-import Select from './components/Select';
-import Done from './components/Done';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import Question from "./components/Question";
+import Select from "./components/Select";
+import Done from "./components/Done";
 
-const url = 'http://localhost:3000';
+const url = "http://api.labamba.space";
 
 function App() {
   const [answers, setAnswers] = useState([]);
-  const [place, setPlace] = useState('Huddinge');
+  const [place, setPlace] = useState("");
   const [questionIndex, setQuestionIndex] = useState(0);
   const [done, setDone] = useState(false);
   const [questions, setQuestions] = useState([]);
@@ -16,28 +16,28 @@ function App() {
   const [response, setResponse] = useState(null);
 
   useEffect(() => {
-    fetch(url + '/places')
-      .then((res) => res.json())
-      .then((body) => setPlaces(body));
+    fetch(url + "/places")
+      .then(res => res.json())
+      .then(body => setPlaces(body));
   }, []);
 
   const fetchQuestions = () => {
-    fetch(url + '/questions')
-      .then((res) => res.json())
-      .then((body) => setQuestions(body));
+    fetch(url + "/questions")
+      .then(res => res.json())
+      .then(body => setQuestions(body));
   };
 
-  const submitAnswers = (answers) => {
-    fetch(url + '/answers', {
-      method: 'POST',
+  const submitAnswers = answers => {
+    fetch(url + "/answers", {
+      method: "POST",
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        Accept: "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(answers),
     })
-      .then((res) => res.json())
-      .then((body) => {
+      .then(res => res.json())
+      .then(body => {
         setResponse(body);
         setDone(true);
       });
@@ -54,13 +54,13 @@ function App() {
             <Select
               label="Kommuner"
               placeholder="Kommuner"
-              options={places.map((p) => {
+              options={places.map(p => {
                 return {
                   label: p,
                   value: p,
                 };
               })}
-              onChange={(selected) => setPlace(selected)}
+              onChange={selected => setPlace(selected)}
             />
 
             <span className="inline-flex rounded-md shadow-sm">
@@ -78,7 +78,7 @@ function App() {
     );
   }
 
-  const onSubmit = (values) => {
+  const onSubmit = values => {
     answers.push({
       question: questions[questionIndex]._id,
       answers: values.answer,
