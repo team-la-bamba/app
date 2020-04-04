@@ -1,6 +1,7 @@
 import React from "react";
 import Input from "./Input";
 import Button from "./Button";
+import Error from "./Error";
 import { useForm } from "../hooks";
 
 function Question({ answers, onSubmit = () => {}, text, type }) {
@@ -24,11 +25,7 @@ function Question({ answers, onSubmit = () => {}, text, type }) {
         </h2>
 
         <form onSubmit={handleSubmit}>
-          {errors.error && (
-            <p className="rounded bg-red-600 mb-2 p-2 text-white">
-              {errors.error}
-            </p>
-          )}
+          {errors.error && <Error text={errors.error} />}
 
           {answers.map(a => (
             <Input

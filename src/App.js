@@ -4,6 +4,7 @@ import Question from "./components/Question";
 import Select from "./components/Select";
 import Done from "./components/Done";
 import Button from "./components/Button";
+import Error from "./components/Error";
 
 const url = "https://api.labamba.space";
 
@@ -15,6 +16,7 @@ function App() {
   const [questions, setQuestions] = useState([]);
   const [places, setPlaces] = useState([]);
   const [response, setResponse] = useState(null);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     fetch(url + "/places")
@@ -39,6 +41,7 @@ function App() {
     })
       .then(res => res.json())
       .then(body => {
+        setError("");
         setResponse(body);
         setDone(true);
       });
@@ -52,6 +55,7 @@ function App() {
             <h2 className="text-2xl leading-8 my-8 font-semibold font-display text-gray-900 sm:text-3xl sm:leading-9 mb-5">
               Välj kommun
             </h2>
+            {error && <Error text={error} />}
             <Select
               label="Kommuner"
               placeholder="Kommuner"
@@ -63,7 +67,17 @@ function App() {
               })}
               onChange={selected => setPlace(selected)}
             />
-            <Button onClick={fetchQuestions}>Nästa</Button>
+            <Button
+              onClick={() => {
+                if (place) {
+                  fetchQuestions();
+                } else {
+                  setError("Ingen kommun vald");
+                }
+              }}
+            >
+              Nästa
+            </Button>
           </div>
         </div>
       </div>
