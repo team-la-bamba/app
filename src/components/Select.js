@@ -36,6 +36,10 @@ export default ({ label, onChange, options, placeholder, value }) => {
     placeholder: () => ({
         color: '#333',
         paddingLeft: '1rem'
+    }),
+    input: (provided) => ({
+        ...provided,
+        paddingLeft: '1rem'
     })
   } 
 

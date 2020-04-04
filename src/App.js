@@ -51,11 +51,19 @@ function App() {
   if (!place || !questions.length) {
     return (
       <div className="App antialiased font-sans bg-gray-50">
-        <h1 className="mt-6 text-center text-5xl leading-9 font-bold text-gray-900">Kristempen 🤒</h1>
-        <div className="formContainer bg-white mt-10 sm:mx-auto sm:w-full sm:max-w-md">
-          <div className="questionContainer bg-white py-16 px-4 shadow sm:rounded-lg sm:px-24">
+        <div className="sm:mx-auto sm:w-full sm:max-w-md px-8">
+          <h1 className="mt-6 text-center text-4xl leading-9 font-bold text-gray-900">Kristempen 
+            <span role="img" aria-label="temperatur emoji"> 🤒</span>
+          </h1>
+          <p className="mt-4 text-center text-m leading-6 text-gray-700 max-w">
+            Hjälp Sverige! Vi behöver få in data för att indikera vart det krävs extra insatser i landet. Självskattningen är även till för att ge dig svar om du behöver råd om vård.  
+          </p>
+        </div>
+
+        <div className="formContainer mt-10 sm:mx-auto sm:w-full sm:max-w-md">
+          <div className="questionContainer bg-white py-16 px-20 shadow sm:rounded-lg sm:px-24">
             <h2 className="text-2xl leading-8 my-8 font-semibold font-display text-gray-900 sm:text-3xl sm:leading-9 mb-5 mt-0">
-              Välj kommun
+              Välj din kommun
             </h2>
             {error && <Error text={error} />}
             <Select
