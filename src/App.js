@@ -51,12 +51,17 @@ function App() {
   if (!place || !questions.length) {
     return (
       <div className="App antialiased font-sans bg-gray-50">
+        
         <div className="sm:mx-auto sm:w-full sm:max-w-md px-8">
-          <h1 className="mt-6 text-center text-4xl leading-9 font-bold text-gray-900">Kristempen 
-            <span role="img" aria-label="temperatur emoji"> 🤒</span>
+          <h1 className="mt-6 text-center text-5xl leading-9 font-bold text-gray-900">
+            Kristempen{" "}
+            <span role="img" aria-label="fever-emoji">
+              🤒
+            </span>
           </h1>
+
           <p className="mt-4 text-center text-m leading-6 text-gray-700 max-w">
-            Hjälp Sverige! Vi behöver få in data för att indikera vart det krävs extra insatser i landet. Självskattningen är även till för att ge dig svar om du behöver råd om vård.  
+            Hjälp Sverige! Vi behöver få in data för att indikera vart det krävs extra insatser i landet. Självskattningen är även till för att ge dig svar om du behöver råd om vård.
           </p>
         </div>
 

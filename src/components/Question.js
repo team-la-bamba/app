@@ -23,7 +23,7 @@ function Question({ answers, onSubmit = () => {}, text, type }) {
         <h2 className="text-2xl leading-8 my-8 font-semibold font-display text-gray-900 sm:text-3xl sm:leading-9 mt-0">
           {text}
         </h2>
- 
+
         <form onSubmit={handleSubmit}>
           {errors.error && <Error text={errors.error} />}
 
