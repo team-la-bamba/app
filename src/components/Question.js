@@ -21,7 +21,7 @@ function Question({ answers, onSubmit = () => {}, text, type }) {
         <h2 className="text-2xl leading-8 my-8 font-semibold font-display text-gray-900 sm:text-3xl sm:leading-9">
           {text}
         </h2>
-
+ 
         <form onSubmit={handleSubmit}>
           {errors.error && (
             <p className="rounded bg-red-600 mb-2 p-2 text-white">
@@ -39,10 +39,10 @@ function Question({ answers, onSubmit = () => {}, text, type }) {
             />
           ))}
 
-          <span className="inline-flex rounded-md shadow-sm">
+          <span className="inline-flex rounded-md shadow-sm w-full">
             <button
               type="submit"
-              className="inline-flex my-3 py-4 items-center px-6 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-blue-700 hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"
+              className="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-full"
             >
               Nästa
             </button>

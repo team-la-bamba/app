@@ -7,7 +7,7 @@ export default ({ label, onChange, options, placeholder, value }) => {
   const customStyles = {
     option: (provided) => ({
       ...provided,
-      padding: 20,
+      padding: 10,
       color: "#333"
     }),
     control: (provided) => ({
@@ -18,6 +18,15 @@ export default ({ label, onChange, options, placeholder, value }) => {
     valueContainer: (provided) => ({
         ...provided,
         padding: "0"
+    }),
+    singleValue: (provided) => ({
+        ...provided,
+        paddingLeft: "1em",
+        marginLeft: "0"
+    }),
+    clearIndicator: (provided) => ({
+      ...provided,
+      color: "#333"
     }),
     indicatorSeparator: () => ({}),
     dropdownIndicator: (provided) => ({
