@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-function Done({ success, text = '', links = [] }) {
+function Done({ success, text = "", links = [] }) {
   let html = null;
 
   if (success) {
@@ -8,11 +8,16 @@ function Done({ success, text = '', links = [] }) {
   } else {
     html = (
       <>
-        <p>{text}</p>
+        <p className="text-xl">{text}</p>
         <ul>
-          {links.map((p) => (
-            <li ley={p.link}>
-              <a href={p.link}>{p.text}</a>
+          {links.map(p => (
+            <li key={p.link}>
+              <a
+                className="hover:underline text-blue-700 text-xl"
+                href={p.link}
+              >
+                {p.text}
+              </a>
             </li>
           ))}
         </ul>
@@ -21,25 +26,19 @@ function Done({ success, text = '', links = [] }) {
   }
 
   return (
-    <>
-      <h2 className="text-2xl leading-8 my-8 font-semibold font-display text-gray-900 sm:text-3xl sm:leading-9">
-        Tack för ditt svar!
-      </h2>
-      {html}
-    </>
+    <div className="container mx-auto">
+      <div className="flex justify-center">
+        <div className="w-1/2">
+          <div className="flex flex-col text-left">
+            <h2 className="text-2xl leading-8 my-8 font-semibold font-display text-gray-900 sm:text-3xl sm:leading-9">
+              Tack för ditt svar!
+            </h2>
+            {html}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
 export default Done;
-
-/*
-{
-  "text": "Tack för att du deltog!",
-  "links": [
-    {
-      "text": "Läs mer om coronaviruset i Stockholm på 117",
-      "link": "https://www.1177.se/Stockholm/sa-fungerar-varden/varden-i-stockholms-lan/om-corona/"
-    }
-  ]
-}
-*/
