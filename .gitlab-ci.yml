@@ -14,7 +14,7 @@ build:
     - docker push ${CI_REGISTRY_IMAGE}:latest
     - docker push ${CI_REGISTRY_IMAGE}:${CI_COMMIT_SHORT_SHA}
 
-.deploy:
+deploy:
   extends: .k8s_deploy
   stage: deploy
   tags: []
