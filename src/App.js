@@ -3,6 +3,7 @@ import "./App.css";
 import Question from "./components/Question";
 import Select from "./components/Select";
 import Done from "./components/Done";
+import Button from "./components/Button";
 
 const url = "https://api.labamba.space";
 
@@ -62,16 +63,7 @@ function App() {
               })}
               onChange={selected => setPlace(selected)}
             />
-
-            <span className="inline-flex rounded-md shadow-sm w-full">
-              <button
-                onClick={() => fetchQuestions()}
-                type="submit"
-                className="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-full"
-              >
-                Nästa
-              </button>
-            </span>
+            <Button onClick={fetchQuestions}>Nästa</Button>
           </div>
         </div>
       </div>
