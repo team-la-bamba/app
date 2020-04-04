@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import './App.css'
+import Question from './Question'
 
-function App() {
+const questions = [
+  {
+    type: 'radio',
+    lang: 'sv',
+    _id: '5e877e6e4a112d3bd0bae8b9',
+    text: 'Mår du bra?',
+    answers: [
+      {
+        _id: '5e877e6e4a112d3bd0bae8ba',
+        text: 'Ja',
+        weight: 5
+      },
+      {
+        _id: '5e877e6e4a112d3bd0bae8bb',
+        text: 'Nej',
+        weight: 10
+      }
+    ]
+  }
+]
+
+function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Question {...questions[0]} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
