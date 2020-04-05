@@ -9,8 +9,7 @@ import Header from './components/Header';
 import Error from './components/Error';
 import { useCookies } from 'react-cookie';
 
-//const url = 'https://api.labamba.space'
-const url = 'http://localhost:3000';
+const url = 'https://api.labamba.space'
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(['place']);
