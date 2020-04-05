@@ -1,4 +1,6 @@
 import React from 'react'
+import { useTranslation } from "react-i18next";
+
 import Input from './Input'
 import Button from './Button'
 import Header from './Header'
@@ -7,6 +9,8 @@ import Error from './Error'
 import { useForm } from '../hooks'
 
 function Question ({ answers, onSubmit = () => {}, text, type }) {
+  const { t } = useTranslation();
+
   const { values, handleChange, handleSubmit, errors } = useForm(
     onSubmit,
     values => {
@@ -46,7 +50,7 @@ function Question ({ answers, onSubmit = () => {}, text, type }) {
               />
             ))}
 
-            <Button>Nästa</Button>
+            <Button>{t("Next")}</Button>
           </form>
         </div>
       </div>
