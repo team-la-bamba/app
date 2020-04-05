@@ -5,7 +5,7 @@ import Footer from '../Footer';
 
 import "../locales/i18n";
 
-function DataPolicyPage() {
+function PitchPage() {
   const { t } = useTranslation();
 
   return (
@@ -13,17 +13,17 @@ function DataPolicyPage() {
         <article>
           <div className="bg-white py-14 px-4 shadow sm:rounded-lg sm:px-24">
             
-            <LanguagePicker /> 
+            <LanguagePicker />
           
             <h1 className="mb-5 text-3xl sm:text-5xl leading-9 font-bold text-gray-900">
-              {t("PolicyPage.title")}
+              {t("PitchPage.title")}
             </h1>
 
-            <div>
-              {t("PolicyPage.text")}
+            <div> 
+              {t("PitchPage.text", { myVar: 'interpolate', joinArrays: ' ' })}
             </div>
 
-          </div>   
+          </div>    
       </article>  
 
       <Footer />
@@ -32,4 +32,4 @@ function DataPolicyPage() {
   );
 }
 
-export default DataPolicyPage
+export default PitchPage

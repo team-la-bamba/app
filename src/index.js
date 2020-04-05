@@ -7,6 +7,7 @@ import "./tailwind-ui.min.css";
 
 import App from './App';
 import PolicyPage from './components/views/PolicyPage';
+import PitchPage from './components/views/PitchPage';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -17,6 +18,9 @@ ReactDOM.render(
     </Switch>
     <Switch>
       <Route exact path="/policy" component={PolicyPage} />
+    </Switch>
+    <Switch>
+      <Route exact path="/pitch" component={PitchPage} />
     </Switch>
   </BrowserRouter>,
   document.getElementById('root')
