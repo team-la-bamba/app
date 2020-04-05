@@ -96,7 +96,7 @@ function App () {
   const onSubmit = values => {
     answers.push({
       question: questions[questionIndex]._id,
-      answers: values.answer,
+      answer: values.answer,
       place: place
     })
 
