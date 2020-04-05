@@ -8,7 +8,9 @@ export default ({ label, onChange, options, placeholder, value }) => {
     option: (provided) => ({
       ...provided,
       padding: 10,
-      color: "#333"
+      color: "#333",
+      textAlign: "left",
+      paddingLeft: "1em"
     }),
     control: (provided) => ({
         ...provided,
