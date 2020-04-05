@@ -1,6 +1,9 @@
 import React from 'react'
+import { useTranslation } from "react-i18next";
 
 function Input ({ _id, onClick, selected, text }) {
+  const { i18n } = useTranslation();
+
   const fakeEvent = {
     persist: () => {},
     target: {
@@ -29,7 +32,7 @@ function Input ({ _id, onClick, selected, text }) {
           className='form-radio h-4 w-4 transition duration-150 ease-in-out __web-inspector-hide-shortcut__'
         />
         <label htmlFor={fakeEvent.target.name} className='-mt-1 ml-3'>
-          {text}
+          {text[i18n.language]}
         </label>
       </div>
     </div>

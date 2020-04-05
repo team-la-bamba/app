@@ -9,7 +9,7 @@ import Error from './Error'
 import { useForm } from '../hooks'
 
 function Question ({ answers, onSubmit = () => {}, text, type }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const { values, handleChange, handleSubmit, errors } = useForm(
     onSubmit,
@@ -34,7 +34,7 @@ function Question ({ answers, onSubmit = () => {}, text, type }) {
       <div className='formContainer mt-10 sm:w-full'>
         <div className='questionContainer bg-white py-14 px-4 shadow sm:rounded-lg sm:px-12 w-full'>
           <h2 className='text-2xl leading-8 my-8 font-semibold font-display text-gray-900 sm:text-2xl sm:leading-7 mt-0'>
-            {text}
+            {text[i18n.language]}
           </h2>
 
           <form onSubmit={handleSubmit}>
