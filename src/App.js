@@ -11,8 +11,7 @@ import Footer from './components/Footer';
 
 import { useCookies } from 'react-cookie';
 
-//const url = 'https://api.labamba.space'
-const url = 'http://localhost:3000';
+const url = 'https://api.labamba.space'
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(['place']);
@@ -26,7 +25,11 @@ function App() {
   const [error, setError] = useState('');
 
   const onCookieChange = (place) => {
-    setCookie('place', place, { path: '/', expires: new Date(2147483647 * 1000) });
+    setCookie('place', place, {
+      path: '/',
+      expires: new Date(2147483647 * 1000),
+      secure: process.env.NODE_ENV === 'production',
+    });
   };
 
   const onChangePlaceClick = (e) => {
