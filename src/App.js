@@ -31,6 +31,7 @@ function App() {
     e.preventDefault();
     removeCookie('place');
     setPlace('');
+    setAnswers([]);
   };
 
   const fetchQuestions = () => {
