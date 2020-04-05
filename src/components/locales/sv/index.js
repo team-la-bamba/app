@@ -19,8 +19,9 @@ const sv = {
         "Resultaten ska man kunna följa via en dashboard med olika grafer hur många som klickat i vilka svar på vilka frågor men också kunna visa upp i vilka områden (städer/regioner) vissa frågor sticker ut.",
       ]
     },
-    "Municipality": "Välj din kommun"
+    "Municipality": "Välj din kommun",
+    "Next": "Nästa"
 }; 
   
 export default sv;
- 
+  

@@ -11,7 +11,7 @@ function Input ({ _id, onClick, selected, text }) {
 
   return (
     <div
-      className='flex content-center w-64 max-w-5xl border-2 rounded-lg border-blue-300 py-4 .my-3 my-3'
+      className='flex content-center w-64 max-w-5xl border-2 rounded-lg border-blue-300 py-4 .my-3 my-3 cursor-pointer'
       onClick={() => onClick(fakeEvent)}
       style={{
         backgroundColor: selected ? '#EBF8FF' : '',

@@ -114,7 +114,7 @@ function App() {
                 }
               }}
             >
-              Nästa
+              {t("Next")}
             </Button>
           </div>
         </div>

@@ -23,7 +23,8 @@ const dataPolicyPage = {
           "people have answered in specific municipalities. It will also show which regions specific answers stands out."
         ]
     },
-    "Municipality": "Choose your municipality"
+    "Municipality": "Choose your municipality",
+    "Next": "Next"
 };
   
 export default dataPolicyPage;
