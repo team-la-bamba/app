@@ -114,8 +114,8 @@ function App() {
             </h2>
             {error && <Error text={error} />}
             <Select
-              label="Kommuner"
-              placeholder="Kommuner"
+              label={t('MunicipalityPlural')}
+              placeholder={t('MunicipalityPlural')}
               options={places.map((p) => {
                 return {
                   label: p,
@@ -154,12 +154,12 @@ function App() {
             <Question {...questions[questionIndex]} onSubmit={onSubmit} />
             <div className="mt-2">
               <p>
-                Kommun: {place} -{' '}
+                {t('MunicipalitySingular')}: {place} -{' '}
                 <button
                   onClick={onChangePlaceClick}
                   className="hover:underline text-blue-700 cursor-pointer"
                 >
-                  Ändra
+                  {t('Change')}
                 </button>
               </p>
             </div>

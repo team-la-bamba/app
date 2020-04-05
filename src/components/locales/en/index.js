@@ -24,7 +24,11 @@ const dataPolicyPage = {
         ]
     },
     "Municipality": "Choose your municipality",
-    "Next": "Next"
+    "MunicipalitySingular": "Municipality",
+    "MunicipalityPlural": "Municipalities",
+    "MunicipalityError": "No municipality chosen",
+    "Next": "Next",
+    "Change": "Change"
 };
   
 export default dataPolicyPage;
