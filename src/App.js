@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from "react-i18next";
+
 import './App.css';
 import './tailwind-ui.min.css';
 import Question from './components/Question';
@@ -14,6 +16,7 @@ import { useCookies } from 'react-cookie';
 const url = 'https://api.labamba.space';
 
 function App() {
+  const { t } = useTranslation();
   const [cookies, setCookie, removeCookie] = useCookies(['place']);
   const [answers, setAnswers] = useState([]);
   const [place, setPlace] = useState(cookies.place);
@@ -85,7 +88,7 @@ function App() {
         <div className="formContainer mt-10 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="questionContainer bg-white py-16 px-20 shadow sm:rounded-lg sm:px-24">
             <h2 className="text-2xl leading-8 my-8 font-semibold font-display text-gray-900 sm:text-3xl sm:leading-9 mb-5 mt-0">
-              Välj din kommun
+              {t("Municipality")}
             </h2>
             {error && <Error text={error} />}
             <Select
@@ -147,13 +150,12 @@ function App() {
           <div className="mt-2">
             <p>
               Kommun: {place} -{' '}
-              <a
+              <button
                 onClick={onChangePlaceClick}
-                href="#"
-                className="hover:underline text-blue-700"
+                className="hover:underline text-blue-700 cursor-pointer"
               >
                 Ändra
-              </a>
+              </button>
             </p>
           </div>
         </>
