@@ -10,6 +10,7 @@ import Button from "./components/Button";
 import Header from "./components/Header";
 import Error from "./components/Error";
 import Footer from "./components/Footer";
+import LanguagePicker from "./components/locales/LanguagePicker";
 
 import { useCookies } from "react-cookie";
 
@@ -78,6 +79,8 @@ function App() {
   if (!place || !questions.length) {
     return (
       <div className="App antialiased font-sans bg-gray-50">
+        <LanguagePicker />
+
         <Header>
           {" "}
           Hjälp Sverige! Vi behöver få in data för att indikera vart det krävs
