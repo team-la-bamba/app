@@ -11,7 +11,7 @@ function DataPolicyPage() {
   return (
     <div className="w-full max-w-3xl px-4">
         <article>
-          <div className="bg-white py-14 px-4 shadow sm:rounded-lg sm:px-24">
+          <div className="bg-white py-14 px-4 shadow sm:rounded-lg sm:px-12">
             
             <LanguagePicker /> 
           

@@ -31,8 +31,8 @@ function Question ({ answers, onSubmit = () => {}, text, type }) {
         extra insatser i landet. Självskattningen är även till för att ge dig
         svar om du behöver råd om vård.
       </Header>
-      <div className='formContainer bg-white mt-10 sm:mx-auto sm:w-full sm:max-w-md'>
-        <div className='questionContainer bg-white py-14 px-4 shadow sm:rounded-lg sm:px-24'>
+      <div className='formContainer mt-10 sm:w-full'>
+        <div className='questionContainer bg-white py-14 px-4 shadow sm:rounded-lg sm:px-12 w-full'>
           <h2 className='text-2xl leading-8 my-8 font-semibold font-display text-gray-900 sm:text-2xl sm:leading-7 mt-0'>
             {text}
           </h2>

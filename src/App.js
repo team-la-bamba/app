@@ -88,8 +88,8 @@ function App() {
           svar om du behöver råd om vård.
         </Header>
 
-        <div className="formContainer mt-10 sm:mx-auto sm:w-full sm:max-w-md">
-          <div className="questionContainer bg-white py-16 px-20 shadow sm:rounded-lg sm:px-24">
+        <div className="formContainer mt-10 sm:w-full">
+          <div className="questionContainer bg-white py-16 px-20 shadow sm:rounded-lg sm:px-12 w-full">
             <h2 className="text-2xl leading-8 my-8 font-semibold font-display text-gray-900 sm:text-3xl sm:leading-9 mb-5 mt-0">
               {t("Municipality")}
             </h2>
