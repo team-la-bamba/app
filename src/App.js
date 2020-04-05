@@ -17,7 +17,7 @@ import { useCookies } from "react-cookie";
 const url = "https://api.labamba.space";
 
 function App() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [cookies, setCookie, removeCookie] = useCookies(["place"]);
   const [answers, setAnswers] = useState([]);
   const [place, setPlace] = useState(cookies.place);
@@ -131,6 +131,7 @@ function App() {
       question: questions[questionIndex]._id,
       answer: values.answer,
       place: place,
+      lang: i18n.language,
     });
 
     setAnswers(answers);
