@@ -7,6 +7,7 @@ import Done from './components/Done'
 import Button from './components/Button'
 import Header from './components/Header'
 import Error from './components/Error'
+import Footer from './components/Footer';
 
 const url = 'https://api.labamba.space'
 
@@ -51,7 +52,7 @@ function App () {
 
   if (!place || !questions.length) {
     return (
-      <div className='App antialiased font-sans bg-gray-50'>
+      <div className='App antialiased font-sans bg-gray-50 w-full flex flex-col'>
         <Header>
           {' '}
           Hjälp Sverige! Vi behöver få in data för att indikera vart det krävs
@@ -89,6 +90,8 @@ function App () {
             </Button>
           </div>
         </div>
+
+        <Footer />
       </div>
     )
   }
