@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import './App.css';
-import './tailwind-ui.min.css';
-import Question from './components/Question';
-import Select from './components/Select';
-import Done from './components/Done';
-import Button from './components/Button';
-import Header from './components/Header';
-import Error from './components/Error';
-import Footer from './components/Footer';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import "./tailwind-ui.min.css";
+import Question from "./components/Question";
+import Select from "./components/Select";
+import Done from "./components/Done";
+import Button from "./components/Button";
+import Header from "./components/Header";
+import Error from "./components/Error";
+import Footer from "./components/Footer";
 
-import { useCookies } from 'react-cookie';
+import { useCookies } from "react-cookie";
 
-const url = 'https://api.labamba.space';
+const url = "https://api.labamba.space";
 
 function App() {
-  const [cookies, setCookie, removeCookie] = useCookies(['place']);
+  const [cookies, setCookie, removeCookie] = useCookies(["place"]);
   const [answers, setAnswers] = useState([]);
   const [place, setPlace] = useState(cookies.place);
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -22,51 +22,51 @@ function App() {
   const [questions, setQuestions] = useState([]);
   const [places, setPlaces] = useState([]);
   const [response, setResponse] = useState(null);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
-  const onCookieChange = (place) => {
-    setCookie('place', place, {
-      path: '/',
+  const onCookieChange = place => {
+    setCookie("place", place, {
+      path: "/",
       expires: new Date(2147483647 * 1000),
-      secure: process.env.NODE_ENV === 'production',
+      secure: process.env.NODE_ENV === "production",
     });
   };
 
-  const onChangePlaceClick = (e) => {
+  const onChangePlaceClick = e => {
     e.preventDefault();
-    removeCookie('place');
-    setPlace('');
+    removeCookie("place");
+    setPlace("");
     setAnswers([]);
   };
 
   const fetchQuestions = () => {
-    fetch(url + '/questions')
-      .then((res) => res.json())
-      .then((body) => setQuestions(body));
+    fetch(url + "/questions")
+      .then(res => res.json())
+      .then(body => setQuestions(body));
   };
 
   useEffect(() => {
-    fetch(url + '/places')
-      .then((res) => res.json())
-      .then((body) => setPlaces(body));
+    fetch(url + "/places")
+      .then(res => res.json())
+      .then(body => setPlaces(body));
 
     if (place) {
       fetchQuestions();
     }
   }, [place]);
 
-  const submitAnswers = (answers) => {
-    fetch(url + '/answers', {
-      method: 'POST',
+  const submitAnswers = answers => {
+    fetch(url + "/answers", {
+      method: "POST",
       headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
+        Accept: "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(answers),
     })
-      .then((res) => res.json())
-      .then((body) => {
-        setError('');
+      .then(res => res.json())
+      .then(body => {
+        setError("");
         setResponse(body);
         setDone(true);
       });
@@ -76,7 +76,7 @@ function App() {
     return (
       <div className="App antialiased font-sans bg-gray-50">
         <Header>
-          {' '}
+          {" "}
           Hjälp Sverige! Vi behöver få in data för att indikera vart det krävs
           extra insatser i landet. Självskattningen är även till för att ge dig
           svar om du behöver råd om vård.
@@ -91,13 +91,13 @@ function App() {
             <Select
               label="Kommuner"
               placeholder="Kommuner"
-              options={places.map((p) => {
+              options={places.map(p => {
                 return {
                   label: p,
                   value: p,
                 };
               })}
-              onChange={(selected) => {
+              onChange={selected => {
                 onCookieChange(selected);
                 setPlace(selected);
               }}
@@ -107,7 +107,7 @@ function App() {
                 if (place) {
                   fetchQuestions();
                 } else {
-                  setError('Ingen kommun vald');
+                  setError("Ingen kommun vald");
                 }
               }}
             >
@@ -115,13 +115,12 @@ function App() {
             </Button>
           </div>
         </div>
-
         <Footer />
       </div>
     );
   }
 
-  const onSubmit = (values) => {
+  const onSubmit = values => {
     answers.push({
       question: questions[questionIndex]._id,
       answer: values.answer,
@@ -146,7 +145,7 @@ function App() {
           <Question {...questions[questionIndex]} onSubmit={onSubmit} />
           <div className="mt-2">
             <p>
-              Kommun: {place} -{' '}
+              Kommun: {place} -{" "}
               <a
                 onClick={onChangePlaceClick}
                 href="#"
@@ -158,6 +157,9 @@ function App() {
           </div>
         </>
       )}
+      <div>
+        <Footer />
+      </div>
     </div>
   );
 }
