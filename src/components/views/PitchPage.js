@@ -20,7 +20,7 @@ function PitchPage() {
             </h1>
 
             <div> 
-              {t("PitchPage.text", { myVar: 'interpolate', joinArrays: ' ' })}
+              {t("PitchPage.text", { myVar: 'interpolate', joinArrays: '' })}
             </div>
 
           </div>    

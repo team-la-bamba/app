@@ -1,4 +1,12 @@
 const dataPolicyPage = {
+    "Header": {
+        "title": "Crisistemperature",
+        "text": [
+            "Help Sweden! We need data in order to know",
+            "where extra resources are needed. The test gives you",
+            "an answer if you need care advice or not."
+        ] 
+    },
     "PolicyPage": {
         "title": "Data Policy",
         "text": "This is \nMultiline JSON"
@@ -14,7 +22,8 @@ const dataPolicyPage = {
           "The results can be followed via a dashboard with different graphs in which you can get information about how many have answered and what",
           "people have answered in specific municipalities. It will also show which regions specific answers stands out."
         ]
-    }
+    },
+    "Municipality": "Choose your municipality"
 };
   
 export default dataPolicyPage;
