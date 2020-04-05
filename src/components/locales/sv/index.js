@@ -20,7 +20,10 @@ const sv = {
       ]
     },
     "Municipality": "Välj din kommun",
-    "Next": "Nästa"
+    "MunicipalitySingular": "Kommun",
+    "MunicipalityPlural": "Kommuner",
+    "Next": "Nästa",
+    "Change": "Ändra"
 }; 
   
 export default sv;
