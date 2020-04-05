@@ -23,7 +23,11 @@ function App() {
   const [error, setError] = useState('');
 
   const onCookieChange = (place) => {
-    setCookie('place', place, { path: '/', expires: new Date(2147483647 * 1000) });
+    setCookie('place', place, {
+      path: '/',
+      expires: new Date(2147483647 * 1000),
+      secure: process.env.NODE_ENV === 'production',
+    });
   };
 
   const onChangePlaceClick = (e) => {
