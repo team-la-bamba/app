@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 
 import { useCookies } from 'react-cookie';
 
-const url = 'https://api.labamba.space'
+const url = 'https://api.labamba.space';
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(['place']);
@@ -97,12 +97,14 @@ function App() {
                   value: p,
                 };
               })}
-              onChange={(selected) => setPlace(selected)}
+              onChange={(selected) => {
+                onCookieChange(selected);
+                setPlace(selected);
+              }}
             />
             <Button
               onClick={() => {
                 if (place) {
-                  onCookieChange(place);
                   fetchQuestions();
                 } else {
                   setError('Ingen kommun vald');
@@ -145,7 +147,11 @@ function App() {
           <div className="mt-2">
             <p>
               Kommun: {place} -{' '}
-              <a onClick={onChangePlaceClick} href="#" className="hover:underline text-blue-700">
+              <a
+                onClick={onChangePlaceClick}
+                href="#"
+                className="hover:underline text-blue-700"
+              >
                 Ändra
               </a>
             </p>
