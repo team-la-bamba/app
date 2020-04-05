@@ -2,6 +2,7 @@ import React from 'react'
 import Input from './Input'
 import Button from './Button'
 import Header from './Header'
+
 import Error from './Error'
 import { useForm } from '../hooks'
 
@@ -49,7 +50,7 @@ function Question ({ answers, onSubmit = () => {}, text, type }) {
           </form>
         </div>
       </div>
-    </div>
+    </div>       
   )
 }
 
